@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>94c3a104-f0ac-4568-97e0-982f7f28dcb0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\OA.Application\OA.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\OA.Infrastructure\OA.Infrastructure.csproj" />
+    <ProjectReference Include="..\Infrastructure\OA.Persistence\OA.Persistence.csproj" />
+    <ProjectReference Include="..\Presentation\OA.Presentation\OA.Presentation.csproj" />
+    <ProjectReference Include="..\WorkerService\OA.LogService.Worker\OA.LogService.Worker.csproj" />
+  </ItemGroup>
+
+</Project>
