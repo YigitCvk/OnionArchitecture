@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  bvysapi.webapi:
+  Oaapi.webapi:
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
        - ASPNETCORE_URLS=http://+:80;
       - RabbitMQ__Host=rabbitmq
       - RabbitMQ__Port=5673
-      - MONGODB_URI=mongodb://mongo:27018/bvysapi_db
+      - MONGODB_URI=mongodb://mongo:27018/oaapi_db
     ports:
       # - "7012:80"
       - "5000:80"
@@ -29,7 +29,7 @@ services:
       - RabbitMQ__Password=guest
       - RabbitMQ__Port=5672
       - RabbitMQ__Ssl__Enabled=false    
-      - MONGODB_URI=mongodb://mongo:27018/bvysapi_db
+      - MONGODB_URI=mongodb://mongo:27018/oaapi_db
     networks:
       - common_networks
     depends_on:

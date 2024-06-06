@@ -1,15 +1,15 @@
 version: '3.7'
 
 services:
-  bvysapi.webapi:
+  Oaapi.webapi:
     build:
       context: .
-      dockerfile: BvysAPI.API/Dockerfile
+      dockerfile: OA.WebAPI/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80;
       - RabbitMQ__Host=rabbitmq
-      - MONGODB_URI=mongodb://mongo:27017/bvysapi_db
+      - MONGODB_URI=mongodb://mongo:27017/oaapi_db
     ports:
       # - "80:80"
       - "5000:80"
@@ -30,7 +30,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - RabbitMQ__Host=rabbitmq
-      - MONGODB_URI=mongodb://mongo:27017/bvysapi_db
+      - MONGODB_URI=mongodb://mongo:27017/oaapi_db
     depends_on:
       - rabbitmq
       - mongo
