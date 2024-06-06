@@ -6,6 +6,7 @@ using OA.Infrastructure.MessageService;
 using OA.LogService.Worker;
 using OA.Persistence.Repositories;
 using RabbitMQ.Client;
+using System;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration((context, config) =>
@@ -21,16 +22,25 @@ IHost host = Host.CreateDefaultBuilder(args)
 
         services.AddSingleton<IConnection>(sp =>
         {
+            var hostName = configuration["RabbitMQ:HostName"] ?? "default-hostname";
+            var userName = configuration["RabbitMQ:UserName"] ?? "default-username";
+            var password = configuration["RabbitMQ:Password"] ?? "default-password";
+            var portStr = configuration["RabbitMQ:Port"] ?? "5672";
+            var sslEnabledStr = configuration["RabbitMQ:Ssl:Enabled"] ?? "false";
+
+            int port = int.Parse(portStr);
+            bool sslEnabled = bool.Parse(sslEnabledStr);
+
             var factory = new ConnectionFactory()
             {
-                HostName = configuration["RabbitMQ:HostName"],
-                UserName = configuration["RabbitMQ:UserName"],
-                Password = configuration["RabbitMQ:Password"],
-                Port = int.Parse(configuration["RabbitMQ:Port"]),
+                HostName = hostName,
+                UserName = userName,
+                Password = password,
+                Port = port,
                 Ssl = new SslOption
                 {
-                    Enabled = bool.Parse(configuration["RabbitMQ:Ssl:Enabled"]),
-                    ServerName = configuration["RabbitMQ:HostName"]
+                    Enabled = sslEnabled,
+                    ServerName = hostName
                 }
             };
             return factory.CreateConnection();
@@ -43,7 +53,6 @@ IHost host = Host.CreateDefaultBuilder(args)
         });
 
         services.AddSingleton<IRabbitMQService, RabbitMQService>();
-
         services.AddSingleton(typeof(IMongoDBRepository<>), typeof(MongoDBRepository<>));
     })
     .Build();
