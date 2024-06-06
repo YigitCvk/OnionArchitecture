@@ -11,19 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkerService", "WorkerService", "{A26BD97F-720F-4598-A843-86A9A7E0BDC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Application", "Core\OA.Application\OA.Application.csproj", "{42923B59-5B3A-4D84-B418-E02F3DF48D4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Application", "Core\OA.Application\OA.Application.csproj", "{42923B59-5B3A-4D84-B418-E02F3DF48D4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Domain", "Core\OA.Domain\OA.Domain.csproj", "{01B47D61-14AD-4574-A2DA-E00667BAE76C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Domain", "Core\OA.Domain\OA.Domain.csproj", "{01B47D61-14AD-4574-A2DA-E00667BAE76C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Infrastructure", "Infrastructure\OA.Infrastructure\OA.Infrastructure.csproj", "{7C83EE3F-E717-4C7A-9EF8-8AB5B3129B12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Infrastructure", "Infrastructure\OA.Infrastructure\OA.Infrastructure.csproj", "{7C83EE3F-E717-4C7A-9EF8-8AB5B3129B12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Persistence", "Infrastructure\OA.Persistence\OA.Persistence.csproj", "{A8938FE1-06AE-481E-8F20-F7B464888176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Persistence", "Infrastructure\OA.Persistence\OA.Persistence.csproj", "{A8938FE1-06AE-481E-8F20-F7B464888176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Presentation", "Presentation\OA.Presentation\OA.Presentation.csproj", "{57F892DB-E03F-4690-9B9D-F5F751B3EB3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Presentation", "Presentation\OA.Presentation\OA.Presentation.csproj", "{57F892DB-E03F-4690-9B9D-F5F751B3EB3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.LogService.Worker", "WorkerService\OA.LogService.Worker\OA.LogService.Worker.csproj", "{461562B7-9B11-4CD4-9958-8F686234BEB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.LogService.Worker", "WorkerService\OA.LogService.Worker\OA.LogService.Worker.csproj", "{461562B7-9B11-4CD4-9958-8F686234BEB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.WebAPI", "OA.WebAPI\OA.WebAPI.csproj", "{C4532E24-9B95-46D2-8141-79B8CD0D5DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.WebAPI", "OA.WebAPI\OA.WebAPI.csproj", "{C4532E24-9B95-46D2-8141-79B8CD0D5DEC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E6EE20EC-78B0-4F7A-AB69-396C343F913B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{C4532E24-9B95-46D2-8141-79B8CD0D5DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4532E24-9B95-46D2-8141-79B8CD0D5DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4532E24-9B95-46D2-8141-79B8CD0D5DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6EE20EC-78B0-4F7A-AB69-396C343F913B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EE20EC-78B0-4F7A-AB69-396C343F913B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EE20EC-78B0-4F7A-AB69-396C343F913B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EE20EC-78B0-4F7A-AB69-396C343F913B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

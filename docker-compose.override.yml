@@ -1,0 +1,62 @@
+version: '3.7'
+
+services:
+  bvysapi.webapi:
+    build:
+      context: .
+      dockerfile: BvysAPI.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;
+      - RabbitMQ__Host=rabbitmq
+      - MONGODB_URI=mongodb://mongo:27017/bvysapi_db
+    ports:
+      # - "80:80"
+      - "5000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - rabbitmq
+      - logconsumers.worker
+      - mongo
+    networks:
+      - common_networks
+
+  logconsumers.worker:
+    build:
+      context: .
+      dockerfile: Workers/LogConsumers.Worker/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQ__Host=rabbitmq
+      - MONGODB_URI=mongodb://mongo:27017/bvysapi_db
+    depends_on:
+      - rabbitmq
+      - mongo
+    networks:
+      - common_networks
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "1453:5672"
+      - "15672:15672"
+    networks:
+      - common_networks
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - common_networks
+    volumes:
+      - mongo_data:/data/db
+
+networks:
+  common_networks:
+    driver: bridge
+
+volumes:
+  mongo_data:

@@ -1,12 +1,8 @@
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using OA.Domain.Entities;
 using OA.Infrastructure.MessageService;
 using OA.LogService.Worker;
 using OA.Persistence.Repositories;
 using RabbitMQ.Client;
-using System;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration((context, config) =>
