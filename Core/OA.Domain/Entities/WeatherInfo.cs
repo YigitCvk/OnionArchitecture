@@ -1,13 +1,75 @@
 ﻿namespace OA.Domain.Entities
 {
-    public class WeatherInfo
+    public abstract class WeatherInfo
     {
-        public DateOnly Date { get; set; }
+        /// <summary>
+        ///     General weather result type
+        /// </summary>
+        public abstract class Weather
+        {
+            /// <summary>
+            ///     Time of data receiving in GMT.
+            /// </summary>
+            public DateTime Date { get; set; }
 
-        public int TemperatureC { get; set; }
+            /// <summary>
+            ///     City name.
+            /// </summary>
+            public String City { get; set; }
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+            /// <summary>
+            ///     Country name.
+            /// </summary>
+            public String Country { get; set; }
 
-        public string? Summary { get; set; }
-    }
+            /// <summary>
+            ///     City identifier.
+            /// </summary>
+            public int CityId { get; set; }
+
+            /// <summary>
+            ///     Weather title.
+            /// </summary>
+            public String Title { get; set; }
+
+            /// <summary>
+            ///     Weather description.
+            /// </summary>
+            public String Description { get; set; }
+
+            /// <summary>
+            ///     Temperature in Kelvin.
+            /// </summary>
+            public Double Temp { get; set; }
+
+            /// <summary>
+            ///     Humidity in %
+            /// </summary>
+            public Double Humidity { get; set; }
+
+            /// <summary>
+            ///     Maximum temperature in Kelvin.
+            /// </summary>
+            public Double TempMax { get; set; }
+
+            /// <summary>
+            ///     Minimum temperature in Kelvin.
+            /// </summary>
+            public Double TempMin { get; set; }
+
+            /// <summary>
+            ///     Wind speed in mps.
+            /// </summary>
+            public Double WindSpeed { get; set; }
+
+            /// <summary>
+            ///     Icon name.
+            /// </summary>
+            public String Icon { get; set; }
+
+            /// <summary>
+            ///     The condition ID.
+            /// </summary>
+            public int ConditionID { get; set; }
+        }
 }
